@@ -20,6 +20,13 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <head>
+                <script
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3488637908196788"
+                    crossOrigin="anonymous"
+                ></script>
+            </head>
             <body>
                 <LanguageProvider>
                     {/* 상단 GNB 네비게이션 */}
