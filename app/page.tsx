@@ -108,16 +108,36 @@ export default function Home() {
                 </p>
             </div>
 
-            {/* 중단 (Mid) 광고 */}
-            <AdUnit slotId="2297268227" className="mb-16" />
-
-            {/* 기능별 카드 메뉴 격자 배치 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
-                {features.map((feature, idx) => {
+            {/* 기능별 카드 메뉴 격자 배치 (상단 6개) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+                {features.slice(0, 6).map((feature, idx) => {
                     const Icon = feature.icon;
                     return (
                         <Link
-                            key={idx}
+                            key={`top-${idx}`}
+                            href={feature.href}
+                            className="group flex flex-col p-8 bg-white rounded-3xl xl:rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all cursor-pointer transform hover:-translate-y-1"
+                        >
+                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${feature.bg} group-hover:scale-110 transition-transform`}>
+                                <Icon className={`w-7 h-7 ${feature.color}`} />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-2">{feature.title}</h2>
+                            <p className="text-gray-500 leading-relaxed font-medium">{feature.description}</p>
+                        </Link>
+                    );
+                })}
+            </div>
+
+            {/* 중단 (Mid) 광고 - 이미지 상의 2번째, 3번째 줄 사이 */}
+            <AdUnit slotId="2297268227" className="mb-12" />
+
+            {/* 기능별 카드 메뉴 격자 배치 (하단 4개) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+                {features.slice(6).map((feature, idx) => {
+                    const Icon = feature.icon;
+                    return (
+                        <Link
+                            key={`bottom-${idx}`}
                             href={feature.href}
                             className="group flex flex-col p-8 bg-white rounded-3xl xl:rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-100 transition-all cursor-pointer transform hover:-translate-y-1"
                         >
