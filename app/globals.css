@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  /* 부드러운 연회색 배경 */
+  --foreground: #0f172a;
+  /* 짙은 남색 텍스트로 가독성 확보 */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  /* 모던하고 깔끔한 기본 폰트 적용 */
+}
