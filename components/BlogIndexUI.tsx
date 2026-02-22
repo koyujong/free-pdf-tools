@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, BookOpen, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import AdUnit from './AdUnit';
 
 const blogPosts = [
     {
@@ -68,6 +69,9 @@ export default function BlogIndexUI() {
                 {t.blog_back_home || 'Back to Home'}
             </Link>
 
+            {/* PDF 블로그 상단 */}
+            <AdUnit slotId="2692019896" className="mb-12" />
+
             <article className="prose prose-lg prose-blue max-w-none mb-16">
                 <header className="mb-12">
                     <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">
@@ -93,6 +97,9 @@ export default function BlogIndexUI() {
                 </div>
             </article>
 
+            {/* PDF 블로그 중단 */}
+            <AdUnit slotId="5984397640" className="mb-12" />
+
             <div className="grid md:grid-cols-2 gap-6">
                 {blogPosts.map((post, index) => (
                     <Link key={index} href={`/blog/${post.slug}`} className="group block bg-white border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
@@ -112,6 +119,9 @@ export default function BlogIndexUI() {
                     </Link>
                 ))}
             </div>
+
+            {/* PDF 블로그 하단 */}
+            <AdUnit slotId="4671315974" className="mt-12" />
         </div>
     );
 }
