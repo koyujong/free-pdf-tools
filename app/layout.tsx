@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     keywords: ['Free PDF Merge', 'Split PDF', 'Rotate PDF', 'Image to PDF', 'Client side PDF tool'],
     verification: {
         google: '47z3uMVzsCyw66vTGaSLLtCKy3vebHH5QOU4H3yCDR8',
+        other: {
+            'naver-site-verification': '3823a46454a8b260a4ef3f0d3c61d1e4b6bba8e1',
+        },
     },
 };
 
