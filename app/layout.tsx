@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     title: 'Free PDF Tools | Fast & Secure',
     description: '100% Free Client-side PDF Tools. Merge, Split, Rotate, Image to PDF.',
     keywords: ['Free PDF Merge', 'Split PDF', 'Rotate PDF', 'Image to PDF', 'Client side PDF tool'],
+    verification: {
+        google: '47z3uMVzsCyw66vTGaSLLtCKy3vebHH5QOU4H3yCDR8',
+    },
 };
 
 export default function RootLayout({
