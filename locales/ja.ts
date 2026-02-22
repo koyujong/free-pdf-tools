@@ -159,6 +159,7 @@ export const ja = {
     unlock_loading: 'PDFのロックを解除しています...',
     unlock_success: 'PDFのロックが解除されました！ダウンロードを開始します。',
     unlock_error_wrong_pw: 'パスワードが正しくありません。もう一度お試しください。',
+    unlock_privacy_hint: 'パスワードは保護されます: サーバー不要の処理。',
 
     // Page Number Page
     pagenumber_title: 'ページ番号の追加',

@@ -46,7 +46,7 @@ export default function UnlockClient() {
 
             // 저장 시 비밀번호 옵션을 주지 않으면 암호가 해제된 채로 저장됨
             const pdfBytes = await pdfDoc.save();
-            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const blob = new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' });
             const url = URL.createObjectURL(blob);
 
             const a = document.createElement('a');
