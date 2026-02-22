@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Layers, Scissors, RotateCw, Image as ImageIcon, Lock, LayoutGrid, FileImage, Stamp, Unlock, Hash } from 'lucide-react';
+import AdUnit from '../components/AdUnit';
 import AdPlaceholder from '../components/AdPlaceholder';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -94,6 +95,9 @@ export default function Home() {
 
     return (
         <div className="max-w-6xl mx-auto px-4 pt-16 mt-4">
+            {/* 상단 (Top) 광고 */}
+            <AdUnit slotId="7932738282" className="mb-12" />
+
             {/* 타이틀 영역 */}
             <div className="text-center mb-16">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
@@ -103,6 +107,9 @@ export default function Home() {
                     {t.home_subtitle}
                 </p>
             </div>
+
+            {/* 중단 (Mid) 광고 */}
+            <AdUnit slotId="2297268227" className="mb-16" />
 
             {/* 기능별 카드 메뉴 격자 배치 */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
@@ -124,8 +131,8 @@ export default function Home() {
                 })}
             </div>
 
-            {/* 수익화 공간 */}
-            <AdPlaceholder />
+            {/* 하단 (Bottom) 광고 */}
+            <AdUnit slotId="8654793019" className="mt-12" />
         </div>
     );
 }
