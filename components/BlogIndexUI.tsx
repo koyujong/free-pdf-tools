@@ -6,61 +6,22 @@ import { ArrowLeft, BookOpen, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import AdUnit from './AdUnit';
 
-const blogPosts = [
-    {
-        slug: 'merge-multiple-pdf-files-without-acrobat',
-        titleEn: 'How to Merge Multiple PDF Files Into One Without Acrobat',
-        descEn: 'Escape expensive subscriptions and learn secure, client-side methods to combine documents free.'
-    },
-    {
-        slug: 'free-online-pdf-splitter-extract-pages',
-        titleEn: 'Free Online PDF Splitter Extract Pages Without Uploading',
-        descEn: 'Discover why offline-in-browser processing is the safest way to extract pages from confidential files.'
-    },
-    {
-        slug: 'convert-multiple-iphone-photos-to-pdf',
-        titleEn: 'Convert Multiple iPhone Photos to PDF Document Free',
-        descEn: 'Compiling dozens of images into a pristine, high-resolution PDF document right from your phone.'
-    },
-    {
-        slug: 'rotate-and-save-pdf-file-permanently',
-        titleEn: 'How to Rotate and Save a PDF File Permanently Online',
-        descEn: 'Stop relying on temporary view changes. Fix structural orientation metadata permanently.'
-    },
-    {
-        slug: 'combine-pdf-files-locally-in-browser',
-        titleEn: 'Best Way to Combine PDF Files Locally in Browser',
-        descEn: 'Harness WebAssembly to parse and generate massive binary data structures locally.'
-    },
-    {
-        slug: 'separate-one-page-from-pdf-document',
-        titleEn: 'Separate One Page from PDF Document Free Online',
-        descEn: 'Perform surgical extraction of crucial data points without risking privacy leaks or uploading files.'
-    },
-    {
-        slug: 'merge-pdf-files-over-100mb-free',
-        titleEn: 'Merge PDF Files Over 100MB Free No Registration',
-        descEn: 'Bypass standard online limitations. Use your own RAM to merge gigantic PDF files securely.'
-    },
-    {
-        slug: 'turn-jpg-images-into-one-pdf',
-        titleEn: 'Turn JPG Images Into One PDF Without losing Quality',
-        descEn: 'Avoid aggressive cloud compression. Preserve extreme pixel density by mapping vectors directly.'
-    },
-    {
-        slug: 'secure-browser-based-pdf-merge-tool',
-        titleEn: 'Secure Browser Based PDF Merge Tool for Sensitive Documents',
-        descEn: 'The corporate imperative for zero-trust computing regarding financial and medical PII transfers.'
-    },
-    {
-        slug: 'split-large-pdf-by-page-numbers',
-        titleEn: 'How to Split a Large PDF by Page Numbers Easily',
-        descEn: 'Dodge the clunky "print-to-pdf" hack. Utilize pure syntax-driven extraction for immense manuals.'
-    }
-];
+import { blogPosts as allBlogPosts } from '../lib/blogData';
 
 export default function BlogIndexUI() {
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
+    const [isClient, setIsClient] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsClient(true);
+    }, []);
+    
+    // 현재 선택된 언어와 일치하는 블로그 글만 필터링 (영어 fallback으로 기본 10개 나옴)
+    const currentPosts = React.useMemo(() => {
+        if (!isClient) return [];
+        const filtered = allBlogPosts.filter(post => post.language === language);
+        return filtered.length > 0 ? filtered : allBlogPosts.filter(post => post.language === 'en');
+    }, [isClient, language]);
 
     return (
         <div className="max-w-5xl mx-auto px-4 pt-12 pb-24">
@@ -101,16 +62,16 @@ export default function BlogIndexUI() {
             <AdUnit slotId="5984397640" className="mb-12" />
 
             <div className="grid md:grid-cols-2 gap-6">
-                {blogPosts.map((post, index) => (
-                    <Link key={index} href={`/blog/${post.slug}`} className="group block bg-white border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                {currentPosts.map((post, index) => (
+                    <Link key={post.slug} href={`/blog/${post.slug}`} className="group block bg-white border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                         <p className="text-sm font-semibold text-blue-600 mb-2 uppercase tracking-wide">
                             {t.blog_article || 'Article'} {index + 1}
                         </p>
                         <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                            {post.titleEn}
+                            {post.title}
                         </h2>
                         <p className="text-gray-600 mb-6 line-clamp-3">
-                            {post.descEn}
+                            {post.description}
                         </p>
                         <div className="flex items-center text-sm font-semibold text-blue-600 mt-auto">
                             {t.blog_read_more || 'Read Full Guide'}

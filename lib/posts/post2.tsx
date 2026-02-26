@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { Camera, Smartphone, ScanLine } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post3Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -300,4 +302,56 @@ export const post3Content: BlogContentParams = {
             btn: "Conversor de Imagen a PDF"
         }
     }
+};
+
+export const post2: BlogPost = {
+    slug: "convert-multiple-iphone-photos-to-pdf",
+    language: "en",
+    translationGroup: "post2",
+    title: "How to Convert Multiple iPhone Photos to PDF Document Free",
+    description: "Smartphones have turned us all into walking scanners. If you need to convert multiple iphone photos to pdf document free, this guide will show you how to compile them into a seamless, high-quality document perfectly suited for professional scenarios.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["convert multiple iphone photos to pdf document free", "iphone image to pdf", "ios photo converter", "jpeg to pdf free"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post2_ko: BlogPost = {
+    slug: "ko-convert-multiple-iphone-photos-to-pdf",
+    language: "ko",
+    translationGroup: "post2",
+    title: "여러 장의 아이폰 사진을 무료로 하나의 PDF 문서로 변환하는 방법",
+    description: "스마트폰은 우리 모두를 걸어 다니는 스캐너로 만들어 주었습니다. 만약 수많은 아이폰 사진들을 추가 앱 설치 없이 깔끔하게 묶어야 한다면, 이 가이드가 흩어진 이미지들을 고품질의 프로페셔널한 PDF 문서로 컴파일하는 방법을 알려드립니다.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["convert multiple iphone photos to pdf document free", "iphone image to pdf", "ios photo converter", "jpeg to pdf free"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post2_ja: BlogPost = {
+    slug: "ja-convert-multiple-iphone-photos-to-pdf",
+    language: "ja",
+    translationGroup: "post2",
+    title: "複数のiPhoneの写真を無料でPDFドキュメントに変換する方法",
+    description: "スマートフォンは私たち全員を歩くスキャナーに変えました。複数のiPhoneの写真を無料でPDFドキュメントに変換する必要がある場合、このガイドでは、プロフェッショナルなシナリオに最適なシームレスで高品質のドキュメントにそれらをコンパイルする方法を紹介します。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["convert multiple iphone photos to pdf document free", "iphone image to pdf", "ios photo converter", "jpeg to pdf free"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post2_es: BlogPost = {
+    slug: "es-convert-multiple-iphone-photos-to-pdf",
+    language: "es",
+    translationGroup: "post2",
+    title: "Cómo convertir varias fotos de iPhone a documento PDF gratis",
+    description: "Los teléfonos inteligentes nos han convertido a todos en escáneres andantes. Si necesita convertir varias fotos de un iPhone a un documento PDF de forma gratuita, esta guía le mostrará cómo compilarlas en un documento fluido y de alta calidad perfectamente adaptado para escenarios profesionales.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["convert multiple iphone photos to pdf document free", "iphone image to pdf", "ios photo converter", "jpeg to pdf free"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };

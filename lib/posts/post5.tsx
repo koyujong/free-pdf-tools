@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { Gauge, Database } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post5Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -280,4 +282,56 @@ export const post5Content: BlogContentParams = {
             btn: "Ir a las Herramientas PDF"
         }
     }
+};
+
+export const post5: BlogPost = {
+    slug: "merge-pdf-files-over-100mb-free",
+    language: "en",
+    translationGroup: "post5",
+    title: "How to Merge PDF Files Over 100MB Free No Registration",
+    description: "Most free online tools enforce strict file size limits. Discover the ultimate loophole to merge pdf files over 100mb free no registration by processing everything directly through your hardware.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["merge pdf files over 100mb free no registration", "merge large pdf free", "combine huge pdf online", "pdf joiner over 100mb"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post5_ko: BlogPost = {
+    slug: "ko-merge-pdf-files-over-100mb-free",
+    language: "ko",
+    translationGroup: "post5",
+    title: "100MB 이상 초대용량 PDF 파일 가입 없이 무료로 합치기",
+    description: "대부분의 무료 온라인 도구들은 매우 엄격한 파일 크기 제한을 적용합니다. 모든 연산을 당신의 하드웨어 내부에서 직접 구동시킴으로써, 회원 가입 없이 100MB가 넘는 거대한 문서들을 완벽하게 병합해 내는 궁극적인 우회 기법을 알아보세요.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["merge pdf files over 100mb free no registration", "merge large pdf free", "combine huge pdf online", "pdf joiner over 100mb"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post5_ja: BlogPost = {
+    slug: "ja-merge-pdf-files-over-100mb-free",
+    language: "ja",
+    translationGroup: "post5",
+    title: "登録なしで100MBを超えるPDFファイルを無料でマージする方法",
+    description: "ほとんどの無料のオンラインツールは、厳密なファイルサイズ制限を適用しています。すべてをハードウェアで直接処理することで、登録なしで100MBを超えるPDFファイルを無料でマージする究極の抜け穴を発見してください。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["merge pdf files over 100mb free no registration", "merge large pdf free", "combine huge pdf online", "pdf joiner over 100mb"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post5_es: BlogPost = {
+    slug: "es-merge-pdf-files-over-100mb-free",
+    language: "es",
+    translationGroup: "post5",
+    title: "Cómo fusionar archivos PDF de más de 100 MB de forma gratuita y sin registro",
+    description: "La mayoría de las herramientas gratuitas en línea aplican estrictos límites de tamaño de archivo. Descubra la solución definitiva para amalgamar sin costo documentos PDF engorrosos de más de 100 megabytes procesando la totalidad de forma local a través de su propio equipo sin entregar credenciales.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["merge pdf files over 100mb free no registration", "merge large pdf free", "combine huge pdf online", "pdf joiner over 100mb"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };

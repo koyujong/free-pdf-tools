@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { FileSignature, CheckCircle2 } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post2Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -276,4 +278,56 @@ export const post2Content: BlogContentParams = {
             btn: "Ir a las Herramientas PDF"
         }
     }
+};
+
+export const post3: BlogPost = {
+    slug: "free-online-pdf-splitter-extract-pages",
+    language: "en",
+    translationGroup: "post3",
+    title: "Using a Free Online PDF Splitter Extract Pages Without Uploading",
+    description: "When sharing large documents, you often only need to send a single chapter or a specific invoice. Using a free online pdf splitter extract pages without uploading provides maximum security and blazing fast speeds.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["free online pdf splitter extract pages without uploading", "extract pdf pages", "split pdf locally", "no upload pdf splitter"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post3_ko: BlogPost = {
+    slug: "ko-free-online-pdf-splitter-extract-pages",
+    language: "ko",
+    translationGroup: "post3",
+    title: "서버 업로드 없이 안전하게 PDF 페이지 분리 추출하기 (무료)",
+    description: "대용량 문서를 공유할 때면, 보통 단일 챕터나 특정 인보이스 페이지 하나만 보내야 할 경우가 많습니다. 서버 업로드 과정이 생략된 100% 로컬 무료 PDF 분리기 도구를 사용하면 개인정보 유출 걱정 없이 광속으로 페이지만 쏙 빼낼 수 있습니다.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["free online pdf splitter extract pages without uploading", "extract pdf pages", "split pdf locally", "no upload pdf splitter"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post3_ja: BlogPost = {
+    slug: "ja-free-online-pdf-splitter-extract-pages",
+    language: "ja",
+    translationGroup: "post3",
+    title: "アップロードなしでページを抽出する無料のオンラインPDF分割ツールの使用",
+    description: "大きなドキュメントを共有する場合、単一の章や特定の請求書のみを送信する必要があることがよくあります。アップロードなしでページを抽出する無料のオンラインPDF分割ツールを使用すると、最大限のセキュリティと超高速の処理速度が提供されます。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["free online pdf splitter extract pages without uploading", "extract pdf pages", "split pdf locally", "no upload pdf splitter"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post3_es: BlogPost = {
+    slug: "es-free-online-pdf-splitter-extract-pages",
+    language: "es",
+    translationGroup: "post3",
+    title: "Uso de un divisor de PDF en línea gratuito: extraiga páginas sin cargar",
+    description: "Al compartir documentos extensos, a menudo solo necesita enviar un solo capítulo o una factura específica. El uso de un divisor de PDF en línea gratuito para extraer páginas sin necesidad de cargarlas proporciona máxima seguridad y velocidades increíblemente rápidas.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["free online pdf splitter extract pages without uploading", "extract pdf pages", "split pdf locally", "no upload pdf splitter"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };

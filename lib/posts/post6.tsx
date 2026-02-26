@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { Settings } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post6Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -288,4 +290,56 @@ export const post6Content: BlogContentParams = {
             btn: "Ir a las Herramientas PDF"
         }
     }
+};
+
+export const post6: BlogPost = {
+    slug: "rotate-and-save-pdf-file-permanently",
+    language: "en",
+    translationGroup: "post6",
+    title: "How to Rotate and Save a PDF File Permanently Online",
+    description: "Nothing halts productivity quite like opening a vital document only to discover it was scanned sideways. We will show you precisely how to rotate and save a pdf file permanently online so that the recipient sees it correctly the very first time.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to rotate and save a pdf file permanently online", "rotate pdf forever", "fix upside down pdf", "permanent pdf rotation"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post6_ko: BlogPost = {
+    slug: "ko-rotate-and-save-pdf-file-permanently",
+    language: "ko",
+    translationGroup: "post6",
+    title: "온라인에서 PDF 파일을 영구적으로 회전하고 저장하는 완벽한 방법",
+    description: "중요한 문서를 열었더니 페이지가 옆으로 누워 있거나 뒤집혀 있는 것만큼 업무 효율을 깎아먹는 일은 드물죠. 수신자가 파일을 처음 열었을 때 바로 올바르게 볼 수 있도록, 온라인에서 PDF 파일을 영구적으로 회전시키고 저장하는 정확한 방법을 안내해 드립니다.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to rotate and save a pdf file permanently online", "rotate pdf forever", "fix upside down pdf", "permanent pdf rotation"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post6_ja: BlogPost = {
+    slug: "ja-rotate-and-save-pdf-file-permanently",
+    language: "ja",
+    translationGroup: "post6",
+    title: "オンラインでPDFファイルを永続的に回転して保存する方法",
+    description: "重要なドキュメントを開いて横向きにスキャンされたことに気付くほど、生産性を低下させるものはありません。受信者が最初から正しく表示できるように、オンラインでPDFファイルを永続的に回転して保存する方法を正確に示します。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to rotate and save a pdf file permanently online", "rotate pdf forever", "fix upside down pdf", "permanent pdf rotation"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post6_es: BlogPost = {
+    slug: "es-rotate-and-save-pdf-file-permanently",
+    language: "es",
+    translationGroup: "post6",
+    title: "Cómo Rotar, Girar y Guardar un Archivo PDF Permanentemente de Forma Online",
+    description: "Absolutamente nada sepulta su estatus y productividad como remitir un vital documento ejecutivo solo para ver de inmediato que fue escaneado burdamente de lado. Revelaremos quirúrgicamente cómo torcer y registrar un libro PDF selladamente perpetuo sin trucajes aparentes; con la garantía de que su distinguido receptor lo visualice con absoluta pulcritud en el instante principal de la apertura.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to rotate and save a pdf file permanently online", "rotate pdf forever", "fix upside down pdf", "permanent pdf rotation"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };

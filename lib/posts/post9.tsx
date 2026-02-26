@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { BookOpen } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post9Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -268,4 +270,56 @@ export const post9Content: BlogContentParams = {
             btn: "Ir a las Herramientas PDF"
         }
     }
+};
+
+export const post9: BlogPost = {
+    slug: "split-large-pdf-by-page-numbers",
+    language: "en",
+    translationGroup: "post9",
+    title: "How to Split a Large PDF by Page Numbers Easily",
+    description: "When faced with a 500-page operational manual or an immense architectural specification, navigating to the precise data point you need is exhausting. We outline how to split a large pdf by page numbers easily so you can work smarter.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to split a large pdf by page numbers easily", "split pdf by range", "extract pages easily", "pdf parsing tool"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post9_ko: BlogPost = {
+    slug: "ko-split-large-pdf-by-page-numbers",
+    language: "ko",
+    translationGroup: "post9",
+    title: "대용량 PDF 문서에서 원하는 페이지 번호 구간만 정확하게 잘라내는 궁극의 방법",
+    description: "장장 500페이지에 달하는 공장 가동 운영 매뉴얼이나, 끝도 없이 스크롤이 내려가는 아찔한 건축 설계 명세서를 마주하게 된다면, 정확히 여러분이 필요로 하는 데이터 단락을 찾아내는 것 자체가 고역입니다. 스마트한 업무 처리를 위해 아주 거대한 <strong>PDF를 원하는 구간별로 페이지 번호 숫자를 묶어 손쉽게 분할하는 요령</strong>을 지금 바로 터득하십시오.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to split a large pdf by page numbers easily", "split pdf by range", "extract pages easily", "pdf parsing tool"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post9_ja: BlogPost = {
+    slug: "ja-split-large-pdf-by-page-numbers",
+    language: "ja",
+    translationGroup: "post9",
+    title: "大きなPDFをページ番号で簡単に分割する方法",
+    description: "500ページの操作マニュアルや膨大なアーキテクチャ仕様に直面したとき、必要な正確なデータポイントに移動するのは骨の折れる作業です。ここでは、ページ番号で大きなPDFを簡単に分割する方法を概説し、よりスマートに作業できるようにします。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to split a large pdf by page numbers easily", "split pdf by range", "extract pages easily", "pdf parsing tool"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post9_es: BlogPost = {
+    slug: "es-split-large-pdf-by-page-numbers",
+    language: "es",
+    translationGroup: "post9",
+    title: "La Fórmula Suprema: Cómo Troquelar, Dividir y Secar Tramos Un PDF Masivo Valiéndose de su Numeración Ágilmente",
+    description: "Al encontrase encajonado de bruces colisionando frontal contra mamotretos operativos engrosando bestiales quinientas planas y pico, o debiendo masticar inabarcables códigos de normativa de arquitecturas kilométricos, peinar a ciegas explorando forzosamente apuntando cazar aquella única y precisa coordenada de datos demandada deviene un ejercicio atroz puramente agotador. Perfilamos, diseccionando la anatomía a cabalidad sobre <strong>cómo partir limpiamente las entrañas de esos pesados volúmenes amonestando por sus matrículas de páginas</strong> sin morir en el intento aliviándolo de cargas a usted y su clientela.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to split a large pdf by page numbers easily", "split pdf by range", "extract pages easily", "pdf parsing tool"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };

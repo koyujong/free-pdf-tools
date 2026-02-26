@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { LayoutDashboard, Cpu } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post4Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -264,4 +266,56 @@ export const post4Content: BlogContentParams = {
             btn: "Diríjase a las utilidades PDF seguras"
         }
     }
+};
+
+export const post1: BlogPost = {
+    slug: "combine-pdf-files-locally-in-browser",
+    language: "en",
+    translationGroup: "post1",
+    title: "The Best Way to Combine PDF Files Locally in Browser",
+    description: "When navigating the landscape of digital utilities, one method stands above the rest. The best way to combine pdf files locally in browser is a game changer for data privacy, speed, and usability.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["best way to combine pdf files locally in browser", "local pdf merger", "combine offline", "secure browser pdf tool"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post1_ko: BlogPost = {
+    slug: "ko-combine-pdf-files-locally-in-browser",
+    language: "ko",
+    translationGroup: "post1",
+    title: "웹 브라우저에서 로컬로 PDF 파일들을 가장 완벽하게 결합하는 방법",
+    description: "수많은 문서 유틸리티 중에서 단 하나의 방식만이 가장 우위를 점하고 있습니다. 브라우저 내부 하드웨어 컴퓨팅 자원을 이용해 로컬로 PDF 파일들을 합치는 방식은 데이터 프라이버시, 처리 속도 및 사용성 측면에서 판도(Game Changer)를 바꿉니다.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["best way to combine pdf files locally in browser", "local pdf merger", "combine offline", "secure browser pdf tool"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post1_ja: BlogPost = {
+    slug: "ja-combine-pdf-files-locally-in-browser",
+    language: "ja",
+    translationGroup: "post1",
+    title: "ブラウザでローカルにPDFファイルを結合する最良の方法",
+    description: "デジタルユーティリティの状況をナビゲートする場合、ある1つの方法が他の方法よりも際立っています。ブラウザでローカルにPDFファイルを結合する最良の方法は、データプライバシー、速度、使いやすさのゲームチェンジャーです。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["best way to combine pdf files locally in browser", "local pdf merger", "combine offline", "secure browser pdf tool"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post1_es: BlogPost = {
+    slug: "es-combine-pdf-files-locally-in-browser",
+    language: "es",
+    translationGroup: "post1",
+    title: "La mejor manera de combinar archivos PDF localmente en el navegador",
+    description: "Al navegar por el amplio panorama de las utilidades digitales, hay un método sobresaliente que revoluciona el mercado. La mejor manera para concatenar ficheros PDF a nivel enteramente local marca un punto de inflexión histórico definitivo para la defensa de la privacidad, propiciando velocidades colosales y una usabilidad espectacular.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["best way to combine pdf files locally in browser", "local pdf merger", "combine offline", "secure browser pdf tool"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };

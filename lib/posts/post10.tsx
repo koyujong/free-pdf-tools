@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { Image as ImageIcon } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post10Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -248,4 +250,56 @@ export const post10Content: BlogContentParams = {
             btn: "Ir a las Herramientas PDF"
         }
     }
+};
+
+export const post10: BlogPost = {
+    slug: "turn-jpg-images-into-one-pdf",
+    language: "en",
+    translationGroup: "post10",
+    title: "How to Turn JPG Images Into One PDF Without Losing Quality",
+    description: "When assembling portfolios or official documentation, blurry photos are unacceptable. Discover how to turn jpg images into one pdf without losing quality using pure client-side drawing algorithms.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["turn jpg images into one pdf without losing quality", "high quality jpg to pdf", "image to pdf locally", "preserve image resolution pdf"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post10_ko: BlogPost = {
+    slug: "ko-turn-jpg-images-into-one-pdf",
+    language: "ko",
+    translationGroup: "post10",
+    title: "화질 저하 없이 원본 해상도 그대로 JPG 이미지들을 하나의 PDF로 합치는 비법",
+    description: "디자이너의 전문적인 포트폴리오를 제출하거나 식별 가능한 공식 등기 서류 증빙 자료를 취합해야 할 때, 픽셀이 뭉개진 흐릿한 사진은 치명적인 결격 사유가 됩니다. 완전히 브라우저 내에서만 구동되는 클라이언트 사이드 도면(drawing) 알고리즘을 활용해 <strong>단 1%의 화질 저하 없이 수많은 JPG 이미지들을 하나의 육중한 PDF로 컴파일하는 요령</strong>을 발견해 보십시오.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["turn jpg images into one pdf without losing quality", "high quality jpg to pdf", "image to pdf locally", "preserve image resolution pdf"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post10_ja: BlogPost = {
+    slug: "ja-turn-jpg-images-into-one-pdf",
+    language: "ja",
+    translationGroup: "post10",
+    title: "品質を損なうことなくJPG画像を1つのPDFに変換する方法",
+    description: "ポートフォリオや公式文書をまとめる場合、ぼやけた写真は許されません。純粋なクライアント側の描画アルゴリズムを使用して、画質を落とさずにJPG画像を1つのPDFに変換する方法を発見してください。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["turn jpg images into one pdf without losing quality", "high quality jpg to pdf", "image to pdf locally", "preserve image resolution pdf"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post10_es: BlogPost = {
+    slug: "es-turn-jpg-images-into-one-pdf",
+    language: "es",
+    translationGroup: "post10",
+    title: "Revelado Magistral: Cómo Acoplar Transmutando Fotos JPG Integrándolas Hacia un Empaque PDF Sin Mutilar ni Desgastar la Calidad en Pixeles",
+    description: "Enfrascados componiendo finos portafolios estéticos al dedillo o recolectando el fajo probatorio leguleyo judicial impecable, entregar como avales borrones ahumados, fotografías pixeladas difusas empañadas caen el sacrilegio inaceptable imperdonable. Escudriñe sabios atajos comprendiendo <strong>cómo fundir y forjar fotos JPG encapsulándolas atadas hacia un encuadernador plano PDF evadiendo perder la divina pureza cualitativa inicial</strong> amparados dictamen purificador bajo diagramación algorítmica albergando lado frontal de cliente (Client-Side) incontaminado.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["turn jpg images into one pdf without losing quality", "high quality jpg to pdf", "image to pdf locally", "preserve image resolution pdf"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };

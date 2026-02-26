@@ -1,9 +1,11 @@
+
+import { BlogPost } from '../blogData';
 import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, Zap, Lock } from 'lucide-react';
-import { BlogContentParams } from '../../../components/BlogPostClient';
 
-export const post1Content: BlogContentParams = {
+
+const contentData = {
     content: {
         en: (
             <article className="prose prose-lg prose-blue max-w-none">
@@ -336,4 +338,56 @@ export const post1Content: BlogContentParams = {
             btn: "Ir a las Herramientas PDF"
         }
     }
+};
+
+export const post4: BlogPost = {
+    slug: "merge-multiple-pdf-files-without-acrobat",
+    language: "en",
+    translationGroup: "post4",
+    title: "How to Merge Multiple PDF Files Into One Without Acrobat",
+    description: "Managing digital documents is an integral part of modern workflows. If you find yourself wondering how to merge multiple pdf files into one without acrobat, you have come to the right place. In this comprehensive guide, we will explore fast, free, and incredibly secure ways to combine your PDF documents entirely within your web browser.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to merge multiple pdf files into one without acrobat", "combine pdf files free", "merge pdf no adobe", "browser pdf merger"],
+    content: contentData.content.en,
+    cta: contentData.cta.en
+};
+
+export const post4_ko: BlogPost = {
+    slug: "ko-merge-multiple-pdf-files-without-acrobat",
+    language: "ko",
+    translationGroup: "post4",
+    title: "애크로뱃(Acrobat) 없이 여러 PDF 파일을 하나로 병합하는 방법",
+    description: "디지털 문서 관리는 현대 업무의 필수적인 부분입니다. 고가의 유료 프로그램 없이 어떻게 여러 PDF 문서를 하나로 합칠 수 있는지 궁금하셨다면, 제대로 찾아오셨습니다. 이 가이드에서는 웹 브라우저 안에서 빠르고, 무료이며, 완벽하게 안전한 방법으로 문서를 병합하는 방법을 살펴봅니다.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to merge multiple pdf files into one without acrobat", "combine pdf files free", "merge pdf no adobe", "browser pdf merger"],
+    content: contentData.content.ko,
+    cta: contentData.cta.ko
+};
+
+export const post4_ja: BlogPost = {
+    slug: "ja-merge-multiple-pdf-files-without-acrobat",
+    language: "ja",
+    translationGroup: "post4",
+    title: "Acrobat（アクロバット）なしで複数のPDFファイルを1つに結合する方法",
+    description: "デジタルドキュメントの管理は、現代のワークフローの不可欠な部分です。高価なソフトウェアなしで、複数のPDFファイルを1つに結合する方法を知りたい場合は、ここが最適な場所です。このガイドでは、Webブラウザ内で完全にドキュメントを結合する、高速で無料で信じられないほど安全な方法を探ります。",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to merge multiple pdf files into one without acrobat", "combine pdf files free", "merge pdf no adobe", "browser pdf merger"],
+    content: contentData.content.ja,
+    cta: contentData.cta.ja
+};
+
+export const post4_es: BlogPost = {
+    slug: "es-merge-multiple-pdf-files-without-acrobat",
+    language: "es",
+    translationGroup: "post4",
+    title: "Cómo unir múltiples archivos PDF en uno sin Acrobat",
+    description: "La gestión de documentos digitales es una parte integral de los flujos de trabajo modernos. Si te preguntas cómo fusionar varios archivos PDF en uno sin pagar una suscripción altísima, has venido al lugar correcto. En esta guía completa, exploraremos formas rápidas, gratuitas e increíblemente seguras de combinar sus documentos PDF completamente dentro de su navegador web.",
+    date: "2026-02-26",
+    category: "PDF Tools",
+    keywords: ["how to merge multiple pdf files into one without acrobat", "combine pdf files free", "merge pdf no adobe", "browser pdf merger"],
+    content: contentData.content.es,
+    cta: contentData.cta.es
 };
