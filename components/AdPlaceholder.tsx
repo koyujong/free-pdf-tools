@@ -1,4 +1,5 @@
 import React from 'react';
+import AdUnit from './AdUnit';
 
 interface AdPlaceholderProps {
   position?: 'top' | 'mid' | 'bottom';
@@ -6,24 +7,18 @@ interface AdPlaceholderProps {
 }
 
 export default function AdPlaceholder({ position = 'bottom', className = '' }: AdPlaceholderProps) {
-  const positionLabel = {
-    top: 'Top Ad Space (상단 광고)',
-    mid: 'Middle Ad Space (중단 광고)',
-    bottom: 'Bottom Ad Space (하단 광고)'
+  // 위치별로 각기 다른 애드센스 슬롯 ID를 할당합니다.
+  const slotIds = {
+    top: '2692019896',
+    mid: '5984397640',
+    bottom: '4671315974'
   };
 
+  const slotId = slotIds[position] || '4671315974';
+
   return (
-    <div className={`w-full max-w-5xl mx-auto my-8 p-12 border border-dashed border-gray-200 rounded-[2rem] bg-gray-50/30 flex flex-col items-center justify-center text-center transition-opacity hover:opacity-80 group ${className}`}>
-      <div className="flex items-center gap-3 mb-1.5">
-        <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-        <p className="text-[15px] font-bold tracking-tight text-gray-500 leading-none">
-          {positionLabel[position]}
-        </p>
-        <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-      </div>
-      <p className="text-[12px] font-semibold text-gray-400/70 tracking-wide">
-        Google AdSense / Sponsorship Area
-      </p>
+    <div className={`w-full max-w-5xl mx-auto my-8 ${className}`}>
+        <AdUnit slotId={slotId} />
     </div>
   );
 }
