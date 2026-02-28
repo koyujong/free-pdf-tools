@@ -1,0 +1,9 @@
+{
+  "name": "pdf-auto-index-scripts",
+  "version": "1.0.0",
+  "description": "GitHub Actions auto URL indexing scripts for PDF Tools",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "googleapis": "^144.0.0"
+  }
+}
