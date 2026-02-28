@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const DOMAIN = 'https://pw.4kdrivewalk.com'; // 현재 적용된 활성 도메인
+const DOMAIN = 'https://freepdf.4kdrivewalk.com'; // 현재 적용된 활성 도메인
 
 export default function robots(): MetadataRoute.Robots {
     return {
