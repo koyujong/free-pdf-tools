@@ -13,7 +13,7 @@ const { google } = require('googleapis');
 
 // 1. 환경 변수 확인
 const GCP_KEY_JSON = process.env.GCP_KEY_JSON;
-const NAVER_KEY = process.env.NAVER_INDEXNOW_KEY || 'e01d38b582e3ca9e2698eff4972a6542';
+const NAVER_KEY = process.env.NAVER_INDEXNOW_KEY || 'fc1e3ad82010475381daf9846e627fdd';
 
 const BASE_URL = 'https://freepdf.4kdrivewalk.com'; // app/sitemap.ts 에 명시된 DOMAIN 기준
 const BEFORE_SHA = process.env.BEFORE_SHA;
