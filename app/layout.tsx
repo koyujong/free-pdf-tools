@@ -8,7 +8,7 @@ import { LanguageProvider } from '../contexts/LanguageContext';
 import Header from '../components/Header';
 
 export const metadata: Metadata = {
-    title: 'Free PDF Tools | Fast & Secure',
+    title: 'Offline-safe PDF Tools (No Upload) | Fast & Secure',
     description: '100% Free Client-side PDF Tools. Merge, Split, Rotate, Image to PDF.',
     keywords: ['Free PDF Merge', 'Split PDF', 'Rotate PDF', 'Image to PDF', 'Client side PDF tool'],
     verification: {

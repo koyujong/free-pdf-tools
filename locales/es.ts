@@ -1,6 +1,6 @@
 // locales/es.ts
 export const es = {
-    header_logo: '📄 Herramientas PDF 100% Gratis',
+    header_logo: '📄 Offline-safe PDF Tools (No Upload)',
     // Navigation
     nav_merge: 'Unir',
     nav_split: 'Dividir',
@@ -9,7 +9,7 @@ export const es = {
 
     // Home Page
     home_title_1: 'Rápido y Seguro',
-    home_title_highlight: 'Herramientas PDF Gratis',
+    home_title_highlight: 'Offline-safe PDF Tools (No Upload)',
     home_subtitle: 'No se requiere subida al servidor. Todo se procesa directamente en su navegador. Úselo de forma segura sin preocuparse por fugas de archivos.',
 
     card_merge_title: 'Unir PDF',

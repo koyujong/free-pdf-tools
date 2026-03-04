@@ -1,6 +1,6 @@
 // locales/ko.ts
 export const ko = {
-    header_logo: '📄 100% 무료 PDF 도구',
+    header_logo: '📄 Offline-safe PDF Tools (No Upload)',
     // Navigation
     nav_merge: '병합',
     nav_split: '분리',
@@ -9,7 +9,7 @@ export const ko = {
 
     // Home Page
     home_title_1: '안전하고 빠른',
-    home_title_highlight: '무료 PDF 도구',
+    home_title_highlight: 'Offline-safe PDF Tools (No Upload)',
     home_subtitle: '서버 업로드 없이 오직 귀하의 브라우저 안에서만 즉시 처리됩니다. 파일 유출 걱정 없이 안심하고 사용하세요.',
 
     card_merge_title: 'PDF 병합',

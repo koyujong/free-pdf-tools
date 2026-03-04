@@ -1,6 +1,6 @@
 // locales/en.ts
 export const en = {
-    header_logo: '📄 100% Free PDF Tools',
+    header_logo: '📄 Offline-safe PDF Tools (No Upload)',
     // Navigation
     nav_merge: 'Merge',
     nav_split: 'Split',
@@ -9,7 +9,7 @@ export const en = {
 
     // Home Page
     home_title_1: 'Fast & Secure',
-    home_title_highlight: 'Free PDF Tools',
+    home_title_highlight: 'Offline-safe PDF Tools (No Upload)',
     home_subtitle: 'No server upload required. Everything is processed directly in your browser. Use safely without worrying about file leaks.',
 
     card_merge_title: 'Merge PDF',

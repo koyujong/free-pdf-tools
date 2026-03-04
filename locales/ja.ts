@@ -1,6 +1,6 @@
 // locales/ja.ts
 export const ja = {
-    header_logo: '📄 100% 無料 PDF ツール',
+    header_logo: '📄 Offline-safe PDF Tools (No Upload)',
     // Navigation
     nav_merge: '結合',
     nav_split: '分割',
@@ -9,7 +9,7 @@ export const ja = {
 
     // Home Page
     home_title_1: '速くて安全な',
-    home_title_highlight: '無料PDFツール',
+    home_title_highlight: 'Offline-safe PDF Tools (No Upload)',
     home_subtitle: 'サーバーのアップロードは不要です。すべてブラウザー内で直接処理されます。ファイルの漏洩を気にせず安全に使用できます。',
 
     card_merge_title: 'PDF結合',
