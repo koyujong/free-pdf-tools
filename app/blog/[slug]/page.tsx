@@ -22,13 +22,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         (p) => p.translationGroup === post.translationGroup
     );
 
+    const DOMAIN = 'https://freepdf.4kdrivewalk.com';
     const languages: Record<string, string> = {};
     translations.forEach((t) => {
-        languages[t.language] = `https://pdftools-url.com/blog/${t.slug}`; // Note: Update domain if needed
+        languages[t.language] = `${DOMAIN}/blog/${t.slug}`;
     });
     const enPost = translations.find((t) => t.language === "en");
     if (enPost) {
-        languages["x-default"] = `https://pdftools-url.com/blog/${enPost.slug}`;
+        languages["x-default"] = `${DOMAIN}/blog/${enPost.slug}`;
     }
 
     return {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: post.description,
         keywords: post.keywords,
         alternates: {
-            canonical: `https://pdftools-url.com/blog/${post.slug}`,
+            canonical: `${DOMAIN}/blog/${post.slug}`,
             languages,
         },
         openGraph: {
