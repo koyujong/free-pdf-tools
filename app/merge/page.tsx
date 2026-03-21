@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState, useRef, DragEvent } from 'react';
+import React, { useState, useRef, useCallback, DragEvent } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import { UploadCloud, FileText, Trash2, GripVertical, Download, ArrowLeft, Loader2, Layers } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { useLanguage } from '../../contexts/LanguageContext';
 import AdPlaceholder from '../../components/AdPlaceholder';
+import CountdownOverlay from '../../components/CountdownOverlay';
 
 // 관리할 파일 인터페이스 정의
 interface PdfFile {
@@ -18,6 +19,8 @@ export default function MergePdfPage() {
     const [pdfFiles, setPdfFiles] = useState<PdfFile[]>([]);
     const [isDragging, setIsDragging] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
+    const [showCountdown, setShowCountdown] = useState(false);
+    const [pendingDownload, setPendingDownload] = useState<{ url: string; filename: string } | null>(null);
     const { t } = useLanguage();
 
     // HTML5 Drag & Drop 상태 관리를 위한 Ref
@@ -128,17 +131,9 @@ export default function MergePdfPage() {
             const blob = new Blob([new Uint8Array(mergedPdfBytes)], { type: 'application/pdf' });
             const url = URL.createObjectURL(blob);
 
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `merged_${new Date().getTime()}.pdf`;
-            document.body.appendChild(a);
-            a.click();
-
-            // 메모리 정리
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-
-            toast.success(t.merge_success, { id: toastId });
+            toast.dismiss(toastId);
+            setPendingDownload({ url, filename: `merged_${new Date().getTime()}.pdf` });
+            setShowCountdown(true);
         } catch (error) {
             console.error(error);
             toast.error(t.merge_failed, { id: toastId });
@@ -146,6 +141,21 @@ export default function MergePdfPage() {
             setIsProcessing(false);
         }
     };
+
+    const handleCountdownComplete = useCallback(() => {
+        if (pendingDownload) {
+            const a = document.createElement('a');
+            a.href = pendingDownload.url;
+            a.download = pendingDownload.filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(pendingDownload.url);
+            setPendingDownload(null);
+            toast.success(t.merge_success);
+        }
+        setShowCountdown(false);
+    }, [pendingDownload, t.merge_success]);
 
     return (
         <div className="max-w-4xl mx-auto px-4 pt-8">
@@ -267,6 +277,13 @@ export default function MergePdfPage() {
             </div>
 
             <AdPlaceholder />
+
+            {showCountdown && (
+                <CountdownOverlay
+                    duration={10}
+                    onComplete={handleCountdownComplete}
+                />
+            )}
         </div>
     );
 }

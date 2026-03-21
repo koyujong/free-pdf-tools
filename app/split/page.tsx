@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, DragEvent } from 'react';
+import React, { useState, useCallback, DragEvent } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import JSZip from 'jszip';
 import { UploadCloud, FileText, Download, ArrowLeft, Loader2, Scissors } from 'lucide-react';
@@ -8,12 +8,15 @@ import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { useLanguage } from '../../contexts/LanguageContext';
 import AdPlaceholder from '../../components/AdPlaceholder';
+import CountdownOverlay from '../../components/CountdownOverlay';
 
 export default function SplitPdfPage() {
     const [file, setFile] = useState<File | null>(null);
     const [totalPages, setTotalPages] = useState<number>(0);
     const [isDragging, setIsDragging] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
+    const [showCountdown, setShowCountdown] = useState(false);
+    const [pendingDownload, setPendingDownload] = useState<{ blob: Blob; filename: string } | null>(null);
     const { t } = useLanguage();
 
     // 분리 옵션: 추출할 페이지 입력 (예: "1, 3, 5-7")
@@ -129,14 +132,16 @@ export default function SplitPdfPage() {
             if (pageIndicesToExtract.length === 1) {
                 const singleFileContent = await zip.file(Object.keys(zip.files)[0])?.async('blob');
                 if (singleFileContent) {
-                    downloadBlob(singleFileContent, Object.keys(zip.files)[0]);
+                    toast.dismiss(toastId);
+                    setPendingDownload({ blob: singleFileContent, filename: Object.keys(zip.files)[0] });
+                    setShowCountdown(true);
                 }
             } else {
                 const zipBlob = await zip.generateAsync({ type: 'blob' });
-                downloadBlob(zipBlob, `${file.name.replace('.pdf', '')}_split.zip`);
+                toast.dismiss(toastId);
+                setPendingDownload({ blob: zipBlob, filename: `${file.name.replace('.pdf', '')}_split.zip` });
+                setShowCountdown(true);
             }
-
-            toast.success(t.split_success, { id: toastId });
         } catch (error: any) {
             console.error(error);
             toast.error(error.message || t.toast_upload_fail, { id: toastId });
@@ -156,6 +161,15 @@ export default function SplitPdfPage() {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     };
+
+    const handleCountdownComplete = useCallback(() => {
+        if (pendingDownload) {
+            downloadBlob(pendingDownload.blob, pendingDownload.filename);
+            setPendingDownload(null);
+            toast.success(t.split_success);
+        }
+        setShowCountdown(false);
+    }, [pendingDownload, t.split_success]);
 
 
     return (
@@ -274,6 +288,13 @@ export default function SplitPdfPage() {
                 </div>
             </div>
             <AdPlaceholder />
+
+            {showCountdown && (
+                <CountdownOverlay
+                    duration={10}
+                    onComplete={handleCountdownComplete}
+                />
+            )}
         </div>
     );
 }

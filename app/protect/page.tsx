@@ -7,6 +7,7 @@ import { FileDown, FileUp, X, KeySquare, Lock } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useLanguage } from '../../contexts/LanguageContext';
 import AdPlaceholder from '../../components/AdPlaceholder';
+import CountdownOverlay from '../../components/CountdownOverlay';
 
 export default function ProtectPage() {
     const { t } = useLanguage();
@@ -14,6 +15,8 @@ export default function ProtectPage() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isProtecting, setIsProtecting] = useState(false);
+    const [showCountdown, setShowCountdown] = useState(false);
+    const [pendingDownload, setPendingDownload] = useState<{ url: string; filename: string } | null>(null);
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         if (acceptedFiles.length > 0) {
@@ -75,15 +78,9 @@ export default function ProtectPage() {
             const blob = new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' });
             const url = URL.createObjectURL(blob);
 
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `protected_${file.name}`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-
-            toast.success(t.protect_success || 'Encryption complete!', { id: toastId });
+            toast.dismiss(toastId);
+            setPendingDownload({ url, filename: `protected_${file.name}` });
+            setShowCountdown(true);
         } catch (error: any) {
             console.error('PDF Encryption Error:', error);
             toast.error(t.toast_upload_fail || 'Error occurred while saving.', { id: toastId });
@@ -91,6 +88,21 @@ export default function ProtectPage() {
             setIsProtecting(false);
         }
     };
+
+    const handleCountdownComplete = useCallback(() => {
+        if (pendingDownload) {
+            const a = document.createElement('a');
+            a.href = pendingDownload.url;
+            a.download = pendingDownload.filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(pendingDownload.url);
+            setPendingDownload(null);
+            toast.success(t.protect_success || 'Encryption complete!');
+        }
+        setShowCountdown(false);
+    }, [pendingDownload, t.protect_success]);
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-12">
@@ -183,6 +195,13 @@ export default function ProtectPage() {
             </div>
 
             <AdPlaceholder />
+
+            {showCountdown && (
+                <CountdownOverlay
+                    duration={10}
+                    onComplete={handleCountdownComplete}
+                />
+            )}
         </div>
     );
 }

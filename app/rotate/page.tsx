@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState, DragEvent } from 'react';
+import React, { useState, useCallback, DragEvent } from 'react';
 import { PDFDocument, degrees } from 'pdf-lib';
 import { UploadCloud, FileText, Download, ArrowLeft, Loader2, RotateCw } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { useLanguage } from '../../contexts/LanguageContext';
 import AdPlaceholder from '../../components/AdPlaceholder';
+import CountdownOverlay from '../../components/CountdownOverlay';
 
 export default function RotatePdfPage() {
     const { t } = useLanguage();
@@ -14,6 +15,8 @@ export default function RotatePdfPage() {
     const [totalPages, setTotalPages] = useState<number>(0);
     const [isDragging, setIsDragging] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
+    const [showCountdown, setShowCountdown] = useState(false);
+    const [pendingDownload, setPendingDownload] = useState<{ url: string; filename: string } | null>(null);
 
     // 회전 옵션
     const [rotationAngle, setRotationAngle] = useState<number>(90);
@@ -114,16 +117,11 @@ export default function RotatePdfPage() {
             const blob = new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' });
 
             const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            const baseName = file.name.replace('.pdf', '');
-            a.download = `${baseName}_rotated.pdf`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
 
-            toast.success(t.rotate_success, { id: toastId });
+            const baseName = file.name.replace('.pdf', '');
+            toast.dismiss(toastId);
+            setPendingDownload({ url, filename: `${baseName}_rotated.pdf` });
+            setShowCountdown(true);
         } catch (error: any) {
             console.error(error);
             toast.error(error.message || t.toast_upload_fail, { id: toastId });
@@ -131,6 +129,21 @@ export default function RotatePdfPage() {
             setIsProcessing(false);
         }
     };
+
+    const handleCountdownComplete = useCallback(() => {
+        if (pendingDownload) {
+            const a = document.createElement('a');
+            a.href = pendingDownload.url;
+            a.download = pendingDownload.filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(pendingDownload.url);
+            setPendingDownload(null);
+            toast.success(t.rotate_success);
+        }
+        setShowCountdown(false);
+    }, [pendingDownload, t.rotate_success]);
 
     return (
         <div className="max-w-4xl mx-auto px-4 pt-8">
@@ -270,6 +283,13 @@ export default function RotatePdfPage() {
                 </div>
             </div>
             <AdPlaceholder />
+
+            {showCountdown && (
+                <CountdownOverlay
+                    duration={10}
+                    onComplete={handleCountdownComplete}
+                />
+            )}
         </div>
     );
 }
